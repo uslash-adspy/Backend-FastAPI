@@ -3,18 +3,14 @@ from fastapi import HTTPException
 
 class PromptHandler():
     def __init__(self):
-        super().__init__("./prompts/prompts.json", [])
-        try:
-            prompts = []
-            files = ["analyze", "question"]
-            for filename in files:
-                with open(f"{filename}.md", "r") as f:
-                    prompt = f.read()
-                    prompts.append(prompt)
-            self.analyze_prompt = prompts[0]
-            self.question_prompt = prompts[1]
-        except:
-            raise HTTPException(status_code=500, detail="Failed to load prompts")
+        prompts = []
+        files = ["analyze", "question"]
+        for filename in files:
+            with open(f"./prompts/{filename}.md", "r", encoding='utf-8') as f:
+                prompt = f.read()
+            prompts.append(prompt)
+        self.analyze_prompt = prompts[0]
+        self.question_prompt = prompts[1]
 
     def get_analyze_prompt(self, post_content: List[str]):
         return self.analyze_prompt.format(

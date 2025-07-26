@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from schemas.analyze import AnalyzeRequest, AnalyzeResponse, GetDataResponse
+from schemas.analyze import AnalyzeRequest, AnalyzeResponse
 from services.analyze import AnalyzeService
 
 router = APIRouter(
