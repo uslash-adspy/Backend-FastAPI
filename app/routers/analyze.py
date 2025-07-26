@@ -13,8 +13,9 @@ analyze_service = AnalyzeService()
 @router.post("/", response_model=AnalyzeResponse)
 async def analyze(request: AnalyzeRequest):
     try:
+        analyze_result = analyze_service.analyze_post(request.post)
         return AnalyzeResponse(
-            **analyze_service.analyze_post(request.post).to_dict()
+            **analyze_result.to_dict()
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

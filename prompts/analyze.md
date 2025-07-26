@@ -98,27 +98,28 @@
 
 ## 출력 형식 규칙
 
-**중요: 반드시 아래 JSON 형식으로만 응답하세요. 다른 설명이나 텍스트는 포함하지 마세요.**
+**절대 준수: 반드시 아래 JSON 형식으로만 응답하세요. 다른 설명이나 텍스트는 절대 포함하지 마세요.**
 
-```json
-{
-    "category": "카테고리명",
-    "isAd": true/false,
-    "adProbability": 0.0,
-    "backAdPercentage": 0.0,
-    "AdUrls": ["URL1", "URL2"],
-    "comment": "분석 댓글 내용"
-}
-```
+JSON 응답 예시:
+[
+"category": "음식/요리",
+"isAd": true,
+"adProbability": 85.5,
+"backAdPercentage": 3.2,
+"adUrls": ["https://coupa.ng/example", "https://naver.com/shopping/example"],
+"comment": "특정 제품을 과도하게 홍보하며 다수의 제휴링크가 포함된 광고성 콘텐츠입니다."
+]
 
 ## 필수 준수 사항
 
 - JSON 형식 외의 다른 텍스트는 절대 포함하지 마세요
 - 모든 필드는 필수이며 누락되어서는 안 됩니다
-- AdUrls가 없는 경우 빈 배열 []로 표시하세요
+- adUrls가 없는 경우 빈 배열 []로 표시하세요
 - backAdPercentage는 반드시 소수 한 자리로 표현하세요 (예: 1.5, 3.0, 0.0)
 - adProbability는 반드시 소수 한 자리로 표현하세요 (예: 85.5, 23.0, 0.0)
 - 광고성 콘텐츠인 경우 comment에 반드시 광고로 판단한 구체적 근거를 포함하세요
 - 분석은 객관적이고 공정해야 합니다
+
+분석할 콘텐츠:
 
 {post}

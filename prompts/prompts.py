@@ -13,8 +13,8 @@ class PromptHandler():
         self.question_prompt = prompts[1]
 
     def get_analyze_prompt(self, post_content: List[str]):
-        return self.analyze_prompt.format(
-            post="\n".join(post_content)
+        return self.analyze_prompt.replace(
+            "{post}", "\n".join(post_content)
         )
 
     def get_question_prompt(self):

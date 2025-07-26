@@ -27,15 +27,15 @@ class Pipeline():
         response_content = response.content[0].text
         return response_content
 
-class AnalyzeService():
+class ChatService():
     def __init__(self):
         self.pipeline = Pipeline()
         self.chats = {}
 
-    def analyze_post(self, url: str, content: str):
+    def chat(self, url: str, content: str):
         try:
             if url not in self.chats:
-                ...
+                ... # DB 조회 엔드포인트
             response = self.pipeline.question_post(self.chats[url], content)
             return response
         except Exception as e:
