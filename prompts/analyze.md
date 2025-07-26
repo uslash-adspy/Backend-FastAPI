@@ -117,7 +117,7 @@
 "isAd": true/false,
 "adProbability": 0.0,
 "backAdPercentage": 0.0,
-"AdUrls": ["URL1", "URL2"],
+"adUrls": ["URL1", "URL2"],
 "comment": "분석 댓글 내용"
 }
 
@@ -126,7 +126,7 @@
 - **절대적 규칙**: JSON 형식 외의 어떤 텍스트도 출력하지 마세요
 - **금지**: 분석 과정, 설명, 근거, 마크다운, 헤더, 리스트 등 모든 추가 내용 금지
 - **필수**: 모든 필드는 반드시 포함되어야 하며 누락되어서는 안 됩니다
-- AdUrls가 없는 경우 빈 배열 []로 표시하세요
+- adUrls가 없는 경우 빈 배열 []로 표시하세요
 - backAdPercentage는 반드시 소수 한 자리로 표현하세요 (예: 1.5, 3.0, 0.0)
 - adProbability는 반드시 소수 한 자리로 표현하세요 (예: 85.5, 23.0, 0.0)
 - 광고성 콘텐츠인 경우 comment에 반드시 광고로 판단한 구체적 근거를 포함하세요
@@ -138,7 +138,7 @@
 "isAd": false,
 "adProbability": 15.0,
 "backAdPercentage": 0.0,
-"AdUrls": [],
+"adUrls": [],
 "comment": "개인 경험을 바탕으로 한 진솔한 맛집 리뷰로 객관적 정보와 주관적 평가가 균형있게 제공됨"
 }
 
