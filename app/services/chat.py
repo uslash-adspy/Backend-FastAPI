@@ -1,9 +1,8 @@
 from typing import List
 from anthropic import Anthropic
 from fastapi import HTTPException
-from app.models import AnalyzeResult
 from prompts import PromptHandler
-from utils import Secrets, Logger, extract_dict
+from utils import Secrets, Logger
 
 logger = Logger()
 secrets = Secrets()
@@ -13,7 +12,7 @@ class Pipeline():
         self.client = Anthropic(api_key=secrets.anthropic_key)
         self.prompt_handler = PromptHandler()
 
-    def question_post(self, chat: List, content: str):
+    def question_post(self, chat: List[str], content: str):
         question_prompt = self.prompt_handler.get_question_prompt()
         internal_chat = chat.copy()
         chat.append({"role": "user", "content": content})
@@ -30,13 +29,10 @@ class Pipeline():
 class ChatService():
     def __init__(self):
         self.pipeline = Pipeline()
-        self.chats = {}
 
-    def chat(self, url: str, content: str):
+    def chat(self, chat: List[str], content: str):
         try:
-            if url not in self.chats:
-                ... # DB 조회 엔드포인트
-            response = self.pipeline.question_post(self.chats[url], content)
+            response = self.pipeline.question_post(chat, content)
             return response
         except Exception as e:
             raise HTTPException(status_code=400, detail=str(e))
