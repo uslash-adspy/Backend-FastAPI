@@ -16,7 +16,7 @@ class Pipeline():
     def analyze_post(self, post_content: List):
         analyze_prompt = self.prompt_handler.get_analyze_prompt(post_content)
         response = self.client.messages.create(
-            model="claude-opus-4-20250514",
+            model="claude-sonnet-4-20250514",
             max_tokens=3000,
             messages=[{"role": "user", "content": analyze_prompt}]
         )

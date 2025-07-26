@@ -1,5 +1,7 @@
 from typing import List
-from fastapi import HTTPException
+from utils import Logger
+
+logger = Logger()
 
 class PromptHandler():
     def __init__(self):
@@ -13,6 +15,7 @@ class PromptHandler():
         self.question_prompt = prompts[1]
 
     def get_analyze_prompt(self, post_content: List[str]):
+        logger.info(post_content)
         return self.analyze_prompt.replace(
             "{post}", "\n".join(post_content)
         )
